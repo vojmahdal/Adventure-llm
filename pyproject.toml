@@ -2,4 +2,7 @@
 name = "adventure-llm"
 version = "0.1.0"
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "fastapi>=0.136.0",
+    "uvicorn>=0.44.0",
+]
