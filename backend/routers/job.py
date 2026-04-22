@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException, Cookie
+from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
 from db.database import get_db
@@ -7,14 +7,14 @@ from schemas.job import StoryJobResponse
 
 router = APIRouter(
     prefix="/jobs",
-    tags=["jobs"],
+    tags=["jobs"]
 )
 
 @router.get("/{job_id}", response_model=StoryJobResponse)
-def get_story_job(job_id: int, db: Session = Depends(get_db)):
-    job = db.query(StoryJob).filter(StoryJob.id == job_id).first()
+def get_job_status(job_id: str, db: Session = Depends(get_db)):
+    job = db.query(StoryJob).filter(StoryJob.job_id == job_id).first()
 
     if not job:
-        raise HTTPException(status_code=404, detail="Story not found")
+        raise HTTPException(status_code=404, detail="Job not found")
 
     return job
