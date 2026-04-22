@@ -11,7 +11,7 @@ from core.prompts import STORY_PROMPT
 from models.story import Story, StoryNode
 
 from wrappers.llm_wrapper import GeminiLCChat
-
+import os
 load_dotenv()
 
 
