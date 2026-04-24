@@ -9,7 +9,3 @@ endpoints:
       networkVisibilities:
         - Project
         - Public
-dependencies:
-    connectionReferences:
-    - name: gemini-connection
-      resourceRef: service:/choose-adventure-game/backend/v1/be2b5/PUBLIC
