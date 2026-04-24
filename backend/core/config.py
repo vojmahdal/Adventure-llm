@@ -22,6 +22,7 @@ class Settings(BaseSettings):
             db_name = os.getenv("DB_NAME")
             db_port = os.getenv("DB_PORT")
             self.DATABASE_URL = f"postgresql://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}"
+            self.GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
     @field_validator("ALLOWED_ORIGINS")
     def parse_allowed_origins(cls, v: str) -> List[str]:
